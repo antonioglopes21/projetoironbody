@@ -1,0 +1,74 @@
+﻿@model IEnumerable<IronBody.Models.Treinos>
+
+<div id="divListaTreinos"class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Aluno")
+            </th>
+            <th>
+                @Html.DisplayName("Instrutor")
+            </th>
+            <th>
+                @Html.DisplayName("Data")
+            </th>
+            <th>
+                @Html.DisplayName("Duracao")
+            </th>
+            <th>
+                @Html.DisplayName("Programa")
+            </th>
+            <th>
+                @Html.DisplayName("Intervalo")
+            </th>
+            <th>
+                @Html.DisplayName("Frequência")
+            </th>
+            <th>
+                @Html.DisplayName("Objetivo")
+            </th>
+            <th>
+                @Html.DisplayName("Observações")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Alunos.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Funcionarios.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.duracao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.programa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.intervalo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.freqTreino)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.objetivo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.observacoes)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Deletar", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

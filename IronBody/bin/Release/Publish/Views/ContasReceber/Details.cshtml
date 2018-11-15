@@ -1,0 +1,74 @@
+﻿@model IronBody.Models.ContasReceber
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ContasReceber</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Alunos.nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alunos.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtVencimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtVencimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dtPagamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtPagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.desconto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desconto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.juros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.juros)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.situação)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.situação)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

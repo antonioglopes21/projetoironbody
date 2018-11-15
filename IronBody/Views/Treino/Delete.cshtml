@@ -1,0 +1,96 @@
+﻿@model IronBody.Models.Treinos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Tem certeza de que deseja excluir isso?</h3>
+<div>
+    <h4>Treinos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Aluno")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alunos.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Instrutor")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionarios.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Data")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Duracão")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.duracao)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Programa")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.programa)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Intervalo")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.intervalo)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Frequência")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.freqTreino)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Objetivo")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.objetivo)
+        </dd>
+        <dt>
+            @Html.DisplayName("Observações")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observacoes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {char  
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-primary" />
+            @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IronBodyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Agenda">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idProfessor" Type="Int32" />
+    <Property Name="idAluno" Type="Int32" />
+    <Property Name="dtInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="atividade" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dtFim" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Alunos" Relationship="Self.FK_Agenda_Alunos" FromRole="Agenda" ToRole="Alunos" />
+    <NavigationProperty Name="Funcionarios" Relationship="Self.FK_Agenda_Funcionarios" FromRole="Agenda" ToRole="Funcionarios" />
+  </EntityType>
+  <EntityType Name="Alunos">
+    <Key>
+      <PropertyRef Name="idAluno" />
+    </Key>
+    <Property Name="idAluno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idProfessor" Type="Int32" Nullable="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cpf" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dtNascimento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="cep" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="cidade" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="bairro" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rua" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="celular" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Agenda" Relationship="Self.FK_Agenda_Alunos" FromRole="Alunos" ToRole="Agenda" />
+    <NavigationProperty Name="Funcionarios" Relationship="Self.FK__Alunos__idProfes__5FB337D6" FromRole="Alunos" ToRole="Funcionarios" />
+    <NavigationProperty Name="AvaliacaoFisica" Relationship="Self.FK_AvaliacaoFisica_Alunos" FromRole="Alunos" ToRole="AvaliacaoFisica" />
+    <NavigationProperty Name="ContasReceber" Relationship="Self.FK_ContasReceber_Alunos" FromRole="Alunos" ToRole="ContasReceber" />
+    <NavigationProperty Name="Funcionarios1" Relationship="Self.FK_Funcionarios_Alunos" FromRole="Alunos" ToRole="Funcionarios" />
+    <NavigationProperty Name="Login" Relationship="Self.FK_Login_Alunos" FromRole="Alunos" ToRole="Login" />
+    <NavigationProperty Name="Treinos" Relationship="Self.FK_Treinos_Alunos" FromRole="Alunos" ToRole="Treinos" />
+  </EntityType>
+  <EntityType Name="AvaliacaoFisica">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idProfessor" Type="Int32" Nullable="false" />
+    <Property Name="idAluno" Type="Int32" Nullable="false" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="peso" Type="Decimal" Precision="4" Scale="4" Nullable="false" />
+    <Property Name="pcentGordura" Type="Decimal" Precision="4" Scale="4" Nullable="false" />
+    <Property Name="pcentGBiceps" Type="Decimal" Precision="4" Scale="4" Nullable="false" />
+    <Property Name="pcentGCosta" Type="Decimal" Precision="4" Scale="4" Nullable="false" />
+    <Property Name="pcentGLado" Type="Decimal" Precision="4" Scale="4" Nullable="false" />
+    <Property Name="pcentGBarriga" Type="Decimal" Precision="4" Scale="4" Nullable="false" />
+    <Property Name="pcentMBiceps" Type="Decimal" Precision="4" Scale="4" Nullable="false" />
+    <Property Name="pcentMTriceps" Type="Decimal" Precision="4" Scale="4" Nullable="false" />
+    <Property Name="pcentMOmbro" Type="Decimal" Precision="4" Scale="4" Nullable="false" />
+    <Property Name="pcentMPeito" Type="Decimal" Precision="4" Scale="4" Nullable="false" />
+    <Property Name="pcentMBarriga" Type="Decimal" Precision="4" Scale="4" Nullable="false" />
+    <Property Name="pcentMCoxa" Type="Decimal" Precision="4" Scale="4" Nullable="false" />
+    <Property Name="pcentMPanturrilha" Type="Decimal" Precision="4" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Alunos" Relationship="Self.FK_AvaliacaoFisica_Alunos" FromRole="AvaliacaoFisica" ToRole="Alunos" />
+    <NavigationProperty Name="Funcionarios" Relationship="Self.FK_AvaliacaoFisica_Funcionarios" FromRole="AvaliacaoFisica" ToRole="Funcionarios" />
+  </EntityType>
+  <EntityType Name="ContasPagar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="fornecedor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dtVencimento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="valor" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+    <Property Name="dtPagamento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="desconto" Type="Decimal" Precision="5" Scale="5" Nullable="false" />
+    <Property Name="juros" Type="Decimal" Precision="5" Scale="5" Nullable="false" />
+    <Property Name="situação" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContasReceber">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idAluno" Type="Int32" Nullable="false" />
+    <Property Name="dtVencimento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="valor" Type="Decimal" Precision="15" Scale="3" Nullable="false" />
+    <Property Name="dtPagamento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="desconto" Type="Decimal" Precision="5" Scale="5" Nullable="false" />
+    <Property Name="juros" Type="Decimal" Precision="5" Scale="5" Nullable="false" />
+    <Property Name="situação" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Alunos" Relationship="Self.FK_ContasReceber_Alunos" FromRole="ContasReceber" ToRole="Alunos" />
+  </EntityType>
+  <EntityType Name="Funcionarios">
+    <Key>
+      <PropertyRef Name="idFuncionario" />
+    </Key>
+    <Property Name="idFuncionario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cpf" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dtNascimento" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="salario" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="cargo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cep" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="cidade" Type="String" MaxLength="38" FixedLength="false" Unicode="false" />
+    <Property Name="bairro" Type="String" MaxLength="38" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="rua" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="celular" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Agenda" Relationship="Self.FK_Agenda_Funcionarios" FromRole="Funcionarios" ToRole="Agenda" />
+    <NavigationProperty Name="Alunos" Relationship="Self.FK__Alunos__idProfes__5FB337D6" FromRole="Funcionarios" ToRole="Alunos" />
+    <NavigationProperty Name="Alunos1" Relationship="Self.FK_Funcionarios_Alunos" FromRole="Funcionarios" ToRole="Alunos" />
+    <NavigationProperty Name="AvaliacaoFisica" Relationship="Self.FK_AvaliacaoFisica_Funcionarios" FromRole="Funcionarios" ToRole="AvaliacaoFisica" />
+    <NavigationProperty Name="Login" Relationship="Self.FK_Login_Funcionarios" FromRole="Funcionarios" ToRole="Login" />
+    <NavigationProperty Name="Treinos" Relationship="Self.FK_Treinos_Funcionarios" FromRole="Funcionarios" ToRole="Treinos" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idFuncionario" Type="Int32" />
+    <Property Name="idAluno" Type="Int32" />
+    <Property Name="usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="senha" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tpacesso" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Alunos" Relationship="Self.FK_Login_Alunos" FromRole="Login" ToRole="Alunos" />
+    <NavigationProperty Name="Funcionarios" Relationship="Self.FK_Login_Funcionarios" FromRole="Login" ToRole="Funcionarios" />
+  </EntityType>
+  <EntityType Name="Treinos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="idProfessor" Type="Int32" Nullable="false" />
+    <Property Name="idAluno" Type="Int32" Nullable="false" />
+    <Property Name="data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="duracao" Type="Int32" Nullable="false" />
+    <Property Name="programa" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="intervalo" Type="Decimal" Precision="2" Scale="2" Nullable="false" />
+    <Property Name="freqTreino" Type="Int32" Nullable="false" />
+    <Property Name="objetivo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="esteira" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="esteiraTempo" Type="Int32" />
+    <Property Name="esteiraVelocidade" Type="Int32" />
+    <Property Name="ergometrica" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ergometricaTempo" Type="Int32" />
+    <Property Name="ergometricaVelocidade" Type="Int32" />
+    <Property Name="elipticon" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="elipticonTempo" Type="Int32" />
+    <Property Name="elipticonVelocidade" Type="Int32" />
+    <Property Name="agachamento" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="agachamentoOrdem" Type="Int32" />
+    <Property Name="agachamentoSerie" Type="Int32" />
+    <Property Name="agachamentoRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="agachamentoCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="legPressOrdem" Type="Int32" />
+    <Property Name="legPress" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="legPressSerie" Type="Int32" />
+    <Property Name="legPressRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="legPressCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="hackMachineOrdem" Type="Int32" />
+    <Property Name="hackMachine" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="hackMachineSerie" Type="Int32" />
+    <Property Name="hackMachineRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="hackMachineCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="avancoOrdem" Type="Int32" />
+    <Property Name="avanco" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="avancoSerie" Type="Int32" />
+    <Property Name="avancoRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="avancoCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="flexoraOrdem" Type="Int32" />
+    <Property Name="flexora" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="flexoraSerie" Type="Int32" />
+    <Property Name="flexoraRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="flexoraCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="flexaoOrdem" Type="Int32" />
+    <Property Name="flexao" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="flexaoSerie" Type="Int32" />
+    <Property Name="flexaoRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="flexaoCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="panturrilhaOrdem" Type="Int32" />
+    <Property Name="panturrilha" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="panturrilhaSerie" Type="Int32" />
+    <Property Name="panturrilhaRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="panturrilhaCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="lvtmentoTerraOrdem" Type="Int32" />
+    <Property Name="lvtmentoTerra" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="lvtmentoTerraSerie" Type="Int32" />
+    <Property Name="lvtmentoTerraRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="lvtmentoTerraCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="abducaoOrdem" Type="Int32" />
+    <Property Name="abducao" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="abducaoSerie" Type="Int32" />
+    <Property Name="abducaoRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="abducaoCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="aducaoOrdem" Type="Int32" />
+    <Property Name="aducao" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="aducaoSerie" Type="Int32" />
+    <Property Name="aducaoRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="aducaoCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="gluteosOrdem" Type="Int32" />
+    <Property Name="gluteos" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="gluteosSerie" Type="Int32" />
+    <Property Name="gluteosRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="gluteosCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="retoOrdem" Type="Int32" />
+    <Property Name="reto" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="retoSerie" Type="Int32" />
+    <Property Name="retoRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="retoCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="obliquoOrdem" Type="Int32" />
+    <Property Name="obliquo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="obliquoSerie" Type="Int32" />
+    <Property Name="obliquoRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="obliquoCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="extsaoLombarOrdem" Type="Int32" />
+    <Property Name="extsaoLombar" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="extsaoLombarSerie" Type="Int32" />
+    <Property Name="extsaoLombarRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="extsaoLombarCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="pranchaOrdem" Type="Int32" />
+    <Property Name="prancha" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="pranchaSerie" Type="Int32" />
+    <Property Name="pranchaRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="pranchaCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roldDorsalOrdem" Type="Int32" />
+    <Property Name="roldDorsal" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roldDorsalSerie" Type="Int32" />
+    <Property Name="roldDorsalRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roldDorsalCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="rmdSentadaOrdem" Type="Int32" />
+    <Property Name="rmdSentada" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="rmdSentadaSerie" Type="Int32" />
+    <Property Name="rmdSentadaRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="rmdSentadaCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="remadaOrdem" Type="Int32" />
+    <Property Name="remada" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="remadaSerie" Type="Int32" />
+    <Property Name="remadaRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="remadaCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="puxadaOrdem" Type="Int32" />
+    <Property Name="puxada" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="puxadaSerie" Type="Int32" />
+    <Property Name="puxadaRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="puxadaCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="desenvOrdem" Type="Int32" />
+    <Property Name="desenv" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="desenvSerie" Type="Int32" />
+    <Property Name="desenvRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="desenvCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="elevacaoOrdem" Type="Int32" />
+    <Property Name="elevacao" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="elevacaoSerie" Type="Int32" />
+    <Property Name="elevacaoRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="elevacaoCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="remadaPeOrdem" Type="Int32" />
+    <Property Name="remadaPe" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="remadaPeSerie" Type="Int32" />
+    <Property Name="remadaPeRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="remadaPeCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="supinoUmOrdem" Type="Int32" />
+    <Property Name="supinoUm" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="supinoUmSerie" Type="Int32" />
+    <Property Name="supinoUmRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="supinoUmCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="supinoDoisOrdem" Type="Int32" />
+    <Property Name="supinoDois" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="supinoDoisSerie" Type="Int32" />
+    <Property Name="supinoDoisRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="supinoDoisCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="crucifixoOrdem" Type="Int32" />
+    <Property Name="crucifixo" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="crucifixoSerie" Type="Int32" />
+    <Property Name="crucifixorRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="crucifixoCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="crossOverOrdem" Type="Int32" />
+    <Property Name="crossOver" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="crossOverSerie" Type="Int32" />
+    <Property Name="crossOverRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="crossOverCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="voadorOrdem" Type="Int32" />
+    <Property Name="voador" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="voadorSerie" Type="Int32" />
+    <Property Name="voadorRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="voadorCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roscaOrdem" Type="Int32" />
+    <Property Name="rosca" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roscaSerie" Type="Int32" />
+    <Property Name="roscaRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roscaCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roscaDiretaOrdem" Type="Int32" />
+    <Property Name="roscaDireta" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roscaDiretaSerie" Type="Int32" />
+    <Property Name="roscaDiretaRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roscaDiretaCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roscaScottOrdem" Type="Int32" />
+    <Property Name="roscaScott" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roscaScottSerie" Type="Int32" />
+    <Property Name="roscaScottRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roscaScottCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roscaConcentradaOrdem" Type="Int32" />
+    <Property Name="roscaConcentrada" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roscaConcentradaSerie" Type="Int32" />
+    <Property Name="roscaConcentradaRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roscaConcentradaCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="testaOrdem" Type="Int32" />
+    <Property Name="testa" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="testaSerie" Type="Int32" />
+    <Property Name="testaRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="testaCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="pressFrancesOrdem" Type="Int32" />
+    <Property Name="pressFrances" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="pressFrancesSerie" Type="Int32" />
+    <Property Name="pressFrancesRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="pressFrancesCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roldTricepsOrdem" Type="Int32" />
+    <Property Name="roldTriceps" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roldTricepsSerie" Type="Int32" />
+    <Property Name="roldTricepsRepet" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="roldTricepsCarga" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="observações" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Alunos" Relationship="Self.FK_Treinos_Alunos" FromRole="Treinos" ToRole="Alunos" />
+    <NavigationProperty Name="Funcionarios" Relationship="Self.FK_Treinos_Funcionarios" FromRole="Treinos" ToRole="Funcionarios" />
+  </EntityType>
+  <Association Name="FK_Agenda_Alunos">
+    <End Role="Alunos" Type="Self.Alunos" Multiplicity="0..1" />
+    <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alunos">
+        <PropertyRef Name="idAluno" />
+      </Principal>
+      <Dependent Role="Agenda">
+        <PropertyRef Name="idAluno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agenda_Funcionarios">
+    <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="0..1" />
+    <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionarios">
+        <PropertyRef Name="idFuncionario" />
+      </Principal>
+      <Dependent Role="Agenda">
+        <PropertyRef Name="idProfessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Alunos__idProfes__5FB337D6">
+    <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="1" />
+    <End Role="Alunos" Type="Self.Alunos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionarios">
+        <PropertyRef Name="idFuncionario" />
+      </Principal>
+      <Dependent Role="Alunos">
+        <PropertyRef Name="idProfessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AvaliacaoFisica_Alunos">
+    <End Role="Alunos" Type="Self.Alunos" Multiplicity="1" />
+    <End Role="AvaliacaoFisica" Type="Self.AvaliacaoFisica" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Alunos">
+        <PropertyRef Name="idAluno" />
+      </Principal>
+      <Dependent Role="AvaliacaoFisica">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ContasReceber_Alunos">
+    <End Role="Alunos" Type="Self.Alunos" Multiplicity="1" />
+    <End Role="ContasReceber" Type="Self.ContasReceber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alunos">
+        <PropertyRef Name="idAluno" />
+      </Principal>
+      <Dependent Role="ContasReceber">
+        <PropertyRef Name="idAluno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Funcionarios_Alunos">
+    <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="1" />
+    <End Role="Alunos" Type="Self.Alunos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionarios">
+        <PropertyRef Name="idFuncionario" />
+      </Principal>
+      <Dependent Role="Alunos">
+        <PropertyRef Name="idProfessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Login_Alunos">
+    <End Role="Alunos" Type="Self.Alunos" Multiplicity="0..1" />
+    <End Role="Login" Type="Self.Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alunos">
+        <PropertyRef Name="idAluno" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="idAluno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Treinos_Alunos">
+    <End Role="Alunos" Type="Self.Alunos" Multiplicity="1" />
+    <End Role="Treinos" Type="Self.Treinos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alunos">
+        <PropertyRef Name="idAluno" />
+      </Principal>
+      <Dependent Role="Treinos">
+        <PropertyRef Name="idAluno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AvaliacaoFisica_Funcionarios">
+    <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="1" />
+    <End Role="AvaliacaoFisica" Type="Self.AvaliacaoFisica" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionarios">
+        <PropertyRef Name="idFuncionario" />
+      </Principal>
+      <Dependent Role="AvaliacaoFisica">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Login_Funcionarios">
+    <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="0..1" />
+    <End Role="Login" Type="Self.Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionarios">
+        <PropertyRef Name="idFuncionario" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="idFuncionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Treinos_Funcionarios">
+    <End Role="Funcionarios" Type="Self.Funcionarios" Multiplicity="1" />
+    <End Role="Treinos" Type="Self.Treinos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionarios">
+        <PropertyRef Name="idFuncionario" />
+      </Principal>
+      <Dependent Role="Treinos">
+        <PropertyRef Name="idProfessor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IronBodyEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Agenda" EntityType="Self.Agenda" />
+    <EntitySet Name="Alunos" EntityType="Self.Alunos" />
+    <EntitySet Name="AvaliacaoFisica" EntityType="Self.AvaliacaoFisica" />
+    <EntitySet Name="ContasPagar" EntityType="Self.ContasPagar" />
+    <EntitySet Name="ContasReceber" EntityType="Self.ContasReceber" />
+    <EntitySet Name="Funcionarios" EntityType="Self.Funcionarios" />
+    <EntitySet Name="Login" EntityType="Self.Login" />
+    <EntitySet Name="Treinos" EntityType="Self.Treinos" />
+    <AssociationSet Name="FK_Agenda_Alunos" Association="Self.FK_Agenda_Alunos">
+      <End Role="Alunos" EntitySet="Alunos" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agenda_Funcionarios" Association="Self.FK_Agenda_Funcionarios">
+      <End Role="Funcionarios" EntitySet="Funcionarios" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Alunos__idProfes__5FB337D6" Association="Self.FK__Alunos__idProfes__5FB337D6">
+      <End Role="Funcionarios" EntitySet="Funcionarios" />
+      <End Role="Alunos" EntitySet="Alunos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AvaliacaoFisica_Alunos" Association="Self.FK_AvaliacaoFisica_Alunos">
+      <End Role="Alunos" EntitySet="Alunos" />
+      <End Role="AvaliacaoFisica" EntitySet="AvaliacaoFisica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ContasReceber_Alunos" Association="Self.FK_ContasReceber_Alunos">
+      <End Role="Alunos" EntitySet="Alunos" />
+      <End Role="ContasReceber" EntitySet="ContasReceber" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Funcionarios_Alunos" Association="Self.FK_Funcionarios_Alunos">
+      <End Role="Funcionarios" EntitySet="Funcionarios" />
+      <End Role="Alunos" EntitySet="Alunos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Login_Alunos" Association="Self.FK_Login_Alunos">
+      <End Role="Alunos" EntitySet="Alunos" />
+      <End Role="Login" EntitySet="Login" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Treinos_Alunos" Association="Self.FK_Treinos_Alunos">
+      <End Role="Alunos" EntitySet="Alunos" />
+      <End Role="Treinos" EntitySet="Treinos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AvaliacaoFisica_Funcionarios" Association="Self.FK_AvaliacaoFisica_Funcionarios">
+      <End Role="Funcionarios" EntitySet="Funcionarios" />
+      <End Role="AvaliacaoFisica" EntitySet="AvaliacaoFisica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Login_Funcionarios" Association="Self.FK_Login_Funcionarios">
+      <End Role="Funcionarios" EntitySet="Funcionarios" />
+      <End Role="Login" EntitySet="Login" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Treinos_Funcionarios" Association="Self.FK_Treinos_Funcionarios">
+      <End Role="Funcionarios" EntitySet="Funcionarios" />
+      <End Role="Treinos" EntitySet="Treinos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

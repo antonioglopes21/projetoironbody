@@ -1,0 +1,53 @@
+﻿@model IronBody.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Cadastro</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            @Html.HiddenFor(model => model.idAluno)
+            @Html.Label("Usuário", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.usuario, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-3">
+            @Html.Label("Senha", htmlAttributes: new { @class = "control-label col-md-12" })
+            @Html.PasswordFor(model => model.senha, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.senha, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-3">
+            @Html.Label("Tipo de Acesso", htmlAttributes: new { @class = "control-label col-md-12" })
+            @Html.EditorFor(model => model.tpacesso, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.tpacesso, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Label("Aluno", "Aluno", htmlAttributes: new { @class = "control-label col-md-12" })
+            @Html.DropDownList("idAluno", null, "Selecione um Aluno", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.idAluno, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-6">
+            @Html.Label("Funcionário", htmlAttributes: new { @class = "control-label col-md-12" })
+            @Html.DropDownList("idFuncionario", null, "Selecione um Funcionário", htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.idFuncionario, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <input type="submit" value="Salvar" class="btn btn-primary" style="margin-top: 10px;" />
+        </div>
+    </div>
+</div>
+}
+<div class="col-md-10">
+    @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default", @style = "margin-top: -56px;margin-left: 80px;" })
+</div>

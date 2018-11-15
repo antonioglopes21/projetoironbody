@@ -1,0 +1,56 @@
+﻿@model IronBody.Models.Agenda
+
+@{
+    ViewBag.Title = "Agenda";
+}
+
+<h2>Exclusão</h2>
+
+<h3>Tem certeza de que deseja excluir isso?</h3>
+<div>
+    <h4>Agenda</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Funcionário")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionarios.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Data de Inicio")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Atividade")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.atividade)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Data Fim")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtFim)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-primary" /> |
+            @Html.ActionLink("Voltar", "Index", new { htmlAttributes = new { @class = "btn btn-default" } })
+        </div>
+    }
+</div>

@@ -1,0 +1,114 @@
+﻿@model IronBody.Models.AvaliacaoFisica
+
+@{
+    ViewBag.Title = "Avaliação Física";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.HiddenFor(model => model.idAluno)
+                @Html.Label("Instrutor", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.idProfessor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.idProfessor, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6">
+                @Html.Label("Aluno", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.idAluno, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.idAluno, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                @Html.Label("Data", "Data", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.data, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.data, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.Label("Peso", "Peso", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.peso, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.peso, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.Label("% Gordura Bíceps", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pcentGBiceps, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pcentGBiceps, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.Label("% Gordura Costas", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pcentGCosta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pcentGCosta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                @Html.Label("% Gordura Cintura", htmlAttributes: new { @class = "control -label col-md-12" })
+                @Html.EditorFor(model => model.pcentGLado, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pcentGLado, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.Label("% Gordura Barriga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pcentGBarriga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pcentGBarriga, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.Label("% Gordura Total", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pcentGordura, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pcentGordura, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.Label("Bíceps", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pcentMBiceps, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pcentMBiceps, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                @Html.Label("Tríceps", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pcentMTriceps, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pcentMTriceps, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.Label("Ombro", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pcentMOmbro, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pcentMOmbro, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.Label("Peito", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pcentMPeito, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pcentMPeito, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                @Html.Label("Barriga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pcentMBarriga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pcentMBarriga, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.Label("Coxa", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pcentMCoxa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pcentMCoxa, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.Label("Panturrilha", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pcentMPanturrilha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pcentMPanturrilha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-primary" style="margin-top: 10px;" />
+            </div>
+        </div>
+    </div>
+}
+<div class="col-md-10">
+    <input type="submit" value="Salvar" class="btn btn-primary" style="margin-top: 10px;margin-bottom: 44px;" />
+</div>

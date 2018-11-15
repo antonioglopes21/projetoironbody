@@ -1,0 +1,62 @@
+﻿@model IEnumerable<IronBody.Models.ContasPagar>
+
+<div id="divListaContasPagar" class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Fornecedor ")
+            </th>
+            <th>
+                @Html.DisplayName("Data Vencimento")
+            </th>
+            <th>
+                @Html.DisplayName("Valor ")
+            </th>
+            <th>
+                @Html.DisplayName("Data Pagamento")
+            </th>
+            <th>
+                @Html.DisplayName("Desconto ")
+            </th>
+            <th>
+                @Html.DisplayName("Juros ")
+            </th>
+            <th>
+                @Html.DisplayName("Situação ")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fornecedor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dtVencimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.valor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dtPagamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.desconto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.juros)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.situacao)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Deletar", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

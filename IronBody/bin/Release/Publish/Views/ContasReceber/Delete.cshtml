@@ -1,0 +1,81 @@
+﻿@model IronBody.Models.ContasReceber
+
+@{
+    ViewBag.Title = "Contas Receber";
+}
+
+<h2>Deletar</h2>
+
+<h3>Tem certeza de que deseja excluir isso?</h3>
+<div>
+    <h4>ContasReceber</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Alunos")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alunos.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Data Vencimento")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtVencimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Valor ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Data Pagamento")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dtPagamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Desconto ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desconto)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Juros ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.juros)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Situação ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.situacao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-primary" />
+            @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

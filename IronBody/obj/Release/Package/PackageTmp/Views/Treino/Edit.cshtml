@@ -1,0 +1,1089 @@
+﻿@model IronBody.Models.Treinos
+
+@{
+                /**/
+
+                ViewBag.Title = "Treinos";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Label("Aluno ", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownList("idAluno", null, "Selecione um Aluno", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idAluno, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6">
+                @Html.Label("Instrutor", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.DropDownList("idProfessor", null, "Selecione um Instrutor", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idProfessor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                @Html.Label("Data ", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.data, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.data, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Objetivo ", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.objetivo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.objetivo, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Programa ", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.programa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.programa, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Intervalo ", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.intervalo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.intervalo, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Duração", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.duracao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.duracao, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Frequência", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.freqTreino, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.freqTreino, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-5">
+                @Html.Label("Esteira ", htmlAttributes: new { @class = "control -label col-md-12" })
+                @Html.EditorFor(model => model.esteira, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.esteira, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-1 col-xs-4">
+                @Html.Label("Tempo", htmlAttributes: new { @class = "control-label col-md-12", @style = "float: right;padding-right: 56px;" })
+                @Html.EditorFor(model => model.esteiraTempo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.esteiraTempo, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-1 col-xs-3">
+                @Html.Label("Velocidade", htmlAttributes: new { @class = "control -label col-md-12", @style = "float: right;padding-right: 65px;" })
+                @Html.EditorFor(model => model.esteiraVelocidade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.esteiraVelocidade, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-5">
+                @Html.Label("Ergométrica ", htmlAttributes: new { @class = "control -label col-md-12" })
+                @Html.EditorFor(model => model.ergometrica, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ergometrica, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-1 col-xs-4">
+                @Html.Label("Tempo ", htmlAttributes: new { @class = "control-label col-md-12", @style = "float: right;padding-right: 56px;" })
+                @Html.EditorFor(model => model.ergometricaTempo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ergometricaTempo, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-1 col-xs-3">
+                @Html.Label("Velocidade ", htmlAttributes: new { @class = "control -label col-md-12", @style = "float: right;padding-right: 65px;" })
+                @Html.EditorFor(model => model.ergometricaVelocidade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ergometricaVelocidade, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-5">
+                @Html.Label("Elipticon ", htmlAttributes: new { @class = "control -label col-md-12" })
+                @Html.EditorFor(model => model.elipticon, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.elipticon, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-1 col-xs-4">
+                @Html.Label("Tempo", htmlAttributes: new { @class = "control-label col-md-12", @style = "float: right;padding-right: 56px;" })
+                @Html.EditorFor(model => model.elipticonTempo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.elipticonTempo, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-1 col-xs-3">
+                @Html.Label("Velocidade ", htmlAttributes: new { @class = "control -label col-md-12", @style = "float: right;padding-right: 65px;" })
+                @Html.EditorFor(model => model.elipticonVelocidade, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.elipticonVelocidade, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                @Html.Label("Extensores M.I ", "Extensores M.I ", htmlAttributes: new { @class = "control-label col-md-12" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.agachamentoOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.agachamentoOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Agachamento", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.agachamento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.agachamento, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.agachamentoSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.agachamentoSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.agachamentoRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.agachamentoRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.agachamentoCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.agachamentoCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.legPressOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.legPressOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Leg Press", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.legPress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.legPress, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.legPressSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.legPressSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.legPressRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.legPressRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.legPressCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.legPressCarga, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.hackMachineOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.hackMachineOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Hack Machine", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.hackMachine, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.hackMachine, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.hackMachineSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.hackMachineSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.hackMachineRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.hackMachineRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.hackMachineCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.hackMachineCarga, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.avancoOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.avancoOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Avanço", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.avanco, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.avanco, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.avancoSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.avancoSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.avancoRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.avancoRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.avancoCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.avancoCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                @Html.Label("Flexores/Panturrilha M.I", "Flexores/Panturrilha M.I", htmlAttributes: new { @class = "control-label col-md-12" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.flexoraOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.flexoraOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Flexora", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.flexora, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.flexora, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.flexoraSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.flexoraSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.flexoraRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.flexoraRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.flexoraCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.flexoraCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.flexaoOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.flexaoOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Flexão", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.flexao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.flexao, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.flexaoSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.flexaoSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.flexaoRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.flexaoRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.flexaoCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.flexaoCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.panturrilhaOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.panturrilhaOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Panturrilha", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.panturrilha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.panturrilha, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.panturrilhaSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.panturrilhaSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.panturrilhaRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.panturrilhaRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.panturrilhaCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.panturrilhaCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.lvtmentoTerraOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lvtmentoTerraOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Levantameto Terra", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.lvtmentoTerra, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lvtmentoTerra, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.lvtmentoTerraSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lvtmentoTerraSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.lvtmentoTerraRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lvtmentoTerraRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.lvtmentoTerraCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lvtmentoTerraCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.abducaoOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.abducaoOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Abdução", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.abducao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.abducao, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.abducaoSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.abducaoSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.abducaoRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.abducaoRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.abducaoCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.abducaoCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                @Html.Label("Adutors/Abdutores/Glúteos M.I", "Adutors/Abdutores/Glúteos M.I", htmlAttributes: new { @class = "control-label col-md-12" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.aducaoOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.aducaoOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Adução", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.aducao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.aducao, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.aducaoSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.aducaoSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.aducaoRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.aducaoRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.aducaoCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.aducaoCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.gluteosOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.gluteosOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Glúteos", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.gluteos, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.gluteos, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.gluteosSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.gluteosSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.gluteosRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.gluteosRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.gluteosCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.gluteosCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                @Html.Label("Abdômen/Lombar M.I", "Abdômen/Lombar M.I", htmlAttributes: new { @class = "control-label col-md-12" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.retoOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.retoOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Reto", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.reto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.reto, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.retoSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.retoSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.retoRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.retoRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.retoCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.retoCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.obliquoOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.obliquoOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Oblíquo", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.obliquo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.obliquo, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.obliquoSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.obliquoSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.obliquoRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.obliquoRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.obliquoCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.obliquoCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.extsaoLombarOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.extsaoLombarOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Extensão Lombar", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.extsaoLombar, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.extsaoLombar, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.extsaoLombarSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.extsaoLombarSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.extsaoLombarRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.extsaoLombarRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.extsaoLombarCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.extsaoLombarCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pranchaOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pranchaOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Prancha", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.prancha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.prancha, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pranchaSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pranchaSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pranchaRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pranchaRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pranchaCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pranchaCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                @Html.Label("Dorsais M.S", "Dorsais M.S", htmlAttributes: new { @class = "control-label col-md-12" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roldDorsalOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roldDorsalOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Roldana Dorsal", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roldDorsal, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roldDorsal, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roldDorsalSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roldDorsalSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roldDorsalRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roldDorsalRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roldDorsalCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roldDorsalCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.rmdSentadaOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.rmdSentadaOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Remada Sentada", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.rmdSentada, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.rmdSentada, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.rmdSentadaSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.rmdSentadaSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.rmdSentadaRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.rmdSentadaRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.rmdSentadaCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.rmdSentadaCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.remadaOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.remadaOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Remada", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.remada, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.remada, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.remadaSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.remadaSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.remadaRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.remadaRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.remadaCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.remadaCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.puxadaOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.rmdSentadaOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Puxada", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.puxada, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.rmdSentada, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.puxadaSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.rmdSentadaSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.puxadaRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.rmdSentadaRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.puxadaCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.rmdSentadaCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                @Html.Label("Ombros M.S", "Ombros M.S", htmlAttributes: new { @class = "control-label col-md-12" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.desenvOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.desenvOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Desenvolvimento", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.desenv, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.desenv, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.desenvSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.desenv, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.desenvRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.desenvRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.desenvCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.desenvCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.elevacaoOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.elevacaoOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Elevação", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.elevacao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.elevacao, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.elevacaoSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.elevacaoSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.elevacaoRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.elevacaoRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.elevacaoCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.elevacaoCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.remadaPeOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.remadaPeOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Remada em Pé", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.remadaPe, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.remadaPe, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.remadaPeSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.remadaPeSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.remadaPeRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.remadaPeRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.remadaPeCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.remadaPeCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                @Html.Label("Peitorais M.S", "Peitorais M.S", htmlAttributes: new { @class = "control-label col-md-12" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.supinoUmOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.supinoUmOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Supino", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.supinoUm, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.supinoUm, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.supinoUmSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.supinoUmSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.supinoUmRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.supinoUmRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.supinoUmCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.supinoUmCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.supinoDoisOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.supinoDoisOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Supino", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.supinoDois, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.supinoDois, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.supinoDoisSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.supinoDoisSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.supinoDoisRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.supinoDoisRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.supinoDoisRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.supinoDoisRepet, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.crucifixoOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.crucifixoOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Crucifixo", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.crucifixo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.crucifixo, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.crucifixoSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.crucifixoSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.crucifixorRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.crucifixorRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.crucifixoCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.crucifixoCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.crossOverOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.crossOverOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("CrossOver", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.crossOver, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.crossOver, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.crossOverSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.crossOverSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.crossOverRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.crossOverRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.crossOverCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.crossOverCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.voadorOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.voadorOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Voador", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.voador, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.voador, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.voadorSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.voadorSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.voadorRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.voadorRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.voadorCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.voadorCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                @Html.Label("Bíceps M.S", "Bíceps M.S", htmlAttributes: new { @class = "control-label col-md-12" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Rosca", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.rosca, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.rosca, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaDiretaOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaDiretaOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Rosca Direta", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaDireta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaDireta, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaDiretaSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaDiretaSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaDiretaRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaDiretaRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaDiretaCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaDiretaCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaScottOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaScottOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Rosca Scott", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaScott, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaScott, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaScottSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaScottSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaScottRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaScottRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaScottCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaScottCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaConcentradaOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaConcentradaOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Rosca Concentrada", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaConcentrada, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaConcentrada, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaConcentradaSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaConcentradaSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaConcentradaRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaConcentradaRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roscaConcentradaCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roscaConcentradaCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                @Html.Label("Tríceps M.S", "Tríceps M.S", htmlAttributes: new { @class = "control-label col-md-12" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.testaOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.testaOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Tríceps Testa", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.testa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.testa, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.testaSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.testaSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.testaRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.testaRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.testaCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.testaCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pressFrancesOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pressFrancesOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Press Francês", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pressFrances, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pressFrances, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pressFrancesSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pressFrancesSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.pressFrancesRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pressFrancesRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.testaCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pressFrancesCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-xs-3">
+                @Html.Label("Ordem", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roldTricepsOrdem, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roldTricepsOrdem, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-9">
+                @Html.Label("Roldana Tríceps", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roldTriceps, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roldTriceps, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Série", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roldTricepsSerie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roldTricepsSerie, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Repet", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.roldTricepsRepet, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.roldTricepsRepet, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2 col-xs-4">
+                @Html.Label("Carga", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.testaCarga, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pressFrancesCarga, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                @Html.Label("Observações", htmlAttributes: new { @class = "control-label col-md-12" })
+                @Html.EditorFor(model => model.observacoes, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.observacoes, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <input type="submit" value="Salvar" class="btn btn-primary" style="margin-top: 10px;margin-bottom: 44px;" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="col-md-10">
+    @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default", @style = "margin-top: -144px;margin-left: 80px;" })
+</div>

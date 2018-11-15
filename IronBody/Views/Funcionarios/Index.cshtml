@@ -1,0 +1,36 @@
+﻿@model IEnumerable<IronBody.Models.Funcionarios>
+
+@{
+    ViewBag.Title = "Funcionários";
+}
+
+<h2>Funcionários</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Index", "Aluno", FormMethod.Get))
+        {
+            <div class="row">
+                <div class="col-sm-8">
+                    @Html.Label("Funcionário", htmlAttributes: new { @class = "control-label col-md-12" })
+                    @Html.TextBox("Funcionario", null,  new { @class = "form-control"} )
+
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-primary" style="margin-top: 23px;">Pesquisar</button>
+                </div>
+
+                <div class="col-sm-1">
+                    <p>
+                        @Html.ActionLink("Novo", "Create", null, new { @class = "btn btn-default", @style = "margin-top: 23px;" })
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+
+</div><div class="row">
+    <div class="col-md-12">
+        @Html.Partial("_Funcionarios", Model)
+    </div>
+</div>

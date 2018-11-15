@@ -1,0 +1,74 @@
+﻿@model IEnumerable<IronBody.Models.Alunos>
+
+<div id="divListaAlunos" class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Nome")
+            </th>
+            <th>
+                @Html.DisplayName("CPF")
+            </th>
+            <th>
+                @Html.DisplayName("Email")
+            </th>
+            <th>
+                @Html.DisplayName("Celular")
+            </th>
+            <th>
+                @Html.DisplayName("Ult Aval Fisica")
+            </th>
+            <th>
+                @Html.DisplayName("Instrutor")
+            </th>
+            <th>
+                @Html.DisplayName("Data Nascimento")
+            </th>
+            <th>
+                @Html.DisplayName("Cidade")
+            </th>
+            <th>
+                @Html.DisplayName("Bairro")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvaliacaoFisica.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Funcionarios.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dtNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bairro)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idAluno }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.idAluno })
+            </td>
+        </tr>
+        }
+
+    </table>
+</div>

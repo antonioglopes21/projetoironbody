@@ -1,0 +1,64 @@
+﻿@model IronBody.Models.Login
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Tem certeza de que deseja excluir isso?</h3>
+<div>
+    <h4>Login</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Aluno")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alunos.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Funcionário")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionarios.nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Usuário")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Senha")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.senha)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Tipo de Acesso")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tpacesso)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<IronBody.Models.Agenda>
+
+@{
+    ViewBag.Title = "Agenda";
+}
+
+<h2>Agenda</h2>
+<div class="row">
+    <div class="col-md-6">
+        @using (Ajax.BeginForm("Index", "Agenda", new AjaxOptions { HttpMethod = "Get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "divListaAgenda" }))
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.Label("Data", htmlAttributes: new { @class = "control-label col-md-4" })
+                    @Html.TextBox("Data", null, new { @class = "form-control"})
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary" style="margin-top: 23px;">
+                        Pesquisar
+                    </button>
+                </div>
+
+                <div class="col-md-3">
+                    <p>
+                        @Html.ActionLink("Novo", "Create", null, new { @class = "btn btn-default", @style = "margin-top: 23px;" })
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        @Html.Partial("_Agenda", Model)
+    </div>
+</div>
