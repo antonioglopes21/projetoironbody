@@ -41,7 +41,7 @@ namespace IronBody.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,idProfessor,idAluno,dtInicio,atividade,dtFim")] Agenda agenda)
+        public ActionResult Create([Bind(Include = "idProfessor,idAluno,dtInicio,atividade,dtFim")] Agenda agenda)
         {
             if (ModelState.IsValid)
             {

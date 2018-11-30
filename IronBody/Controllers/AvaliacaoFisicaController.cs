@@ -64,7 +64,7 @@ namespace IronBody.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,idProfessor,idAluno,data,peso,pcentGordura,pcentGBiceps,pcentGCosta,pcentGLado,pcentGBarriga,pcentMBiceps,pcentMTriceps,pcentMOmbro,pcentMPeito,pcentMBarriga,pcentMCoxa,pcentMPanturrilha")] AvaliacaoFisica avaliacaoFisica)
+        public ActionResult Create([Bind(Include = "idProfessor,idAluno,data,peso,pcentGordura,pcentGBiceps,pcentGCosta,pcentGLado,pcentGBarriga,pcentMBiceps,pcentMTriceps,pcentMOmbro,pcentMPeito,pcentMBarriga,pcentMCoxa,pcentMPanturrilha")] AvaliacaoFisica avaliacaoFisica)
         {
             if (ModelState.IsValid)
             {

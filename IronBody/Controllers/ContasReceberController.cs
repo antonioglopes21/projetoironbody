@@ -50,7 +50,7 @@ namespace IronBody.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,idAluno,dtVencimento,valor,dtPagamento,desconto,juros,situação")] ContasReceber contasReceber)
+        public ActionResult Create([Bind(Include = "idAluno,dtVencimento,valor,desconto,juros,situacao")] ContasReceber contasReceber)
         {
             if (ModelState.IsValid)
             {
@@ -71,6 +71,11 @@ namespace IronBody.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             ContasReceber contasReceber = db.ContasReceber.Find(id);
+            if (contasReceber.dtPagamento != null)
+            {
+                ViewBag.DataPagamento = contasReceber.dtPagamento.ToString();
+            }
+         
             if (contasReceber == null)
             {
                 return HttpNotFound();
@@ -84,10 +89,11 @@ namespace IronBody.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,idAluno,dtVencimento,valor,dtPagamento,desconto,juros,situação")] ContasReceber contasReceber)
+        public ActionResult Edit([Bind(Include = "id,idAluno,dtVencimento,valor,desconto,juros,situacao")] ContasReceber contasReceber, string DataPagamento)
         {
             if (ModelState.IsValid)
             {
+                contasReceber.dtPagamento = Convert.ToDateTime(DataPagamento);
                 db.Entry(contasReceber).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

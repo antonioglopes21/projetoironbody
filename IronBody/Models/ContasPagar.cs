@@ -20,11 +20,11 @@ namespace IronBody.Models
 
         public decimal valor { get; set; }
 
-        public DateTime dtPagamento { get; set; }
+        public DateTime? dtPagamento { get; set; }
 
-        public decimal desconto { get; set; }
+        public decimal? desconto { get; set; }
 
-        public decimal juros { get; set; }
+        public decimal? juros { get; set; }
 
         [Required]
         [StringLength(10)]

@@ -70,10 +70,11 @@ namespace IronBody.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idFuncionario,nome,cpf,dtNascimento,salario,cargo,cep,estado,cidade,bairro,rua,celular,email")] Funcionarios funcionarios)
+        public ActionResult Edit([Bind(Include = "idFuncionario,nome,cpf,dtNascimento,salario,cargo,cep,estado,cidade,bairro,rua,celular,email")] Funcionarios funcionarios, int id)
         {
             if (ModelState.IsValid)
             {
+                funcionarios.idFuncionario = id;
                 db.Entry(funcionarios).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
